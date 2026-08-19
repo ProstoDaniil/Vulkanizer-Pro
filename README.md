@@ -134,3 +134,141 @@
 Проект оригинального транслятора DXVK: https://github.com/doitsujin/dxvk
 
 Помните: вероятность встретить медведя с дробовиком крайне мала, но никогда не равна нулю! Приятной игры без лагов!
+
+//////////////////////////////////////////////////////////////////////////////////////////
+======================================================================
+                     VULKANIZER PRO (alpha v0.66)
+  Intelligent optimizer & GUI-wrapper for translating games to Vulkan API
+                   FOR TRUE GAMERS. BY THOSE WHO PLAY!
+======================================================================
+
+TABLE OF CONTENTS
+1. About the project and credits
+2. Important warnings and risks
+3. Special instructions (Ubisoft, GTA 4)
+4. Settings and Graphics Presets
+5. Game maintenance tools
+6. Global OS system tweaks (13 tweaks)
+7. How to use
+8. Contacts and Authors
+
+----------------------------------------------------------------------
+1. ABOUT THE PROJECT AND CREDITS
+----------------------------------------------------------------------
+VULKANIZER PRO is an advanced graphical shell (wrapper) and comprehensive operating system optimizer.
+
+IMPORTANT: This project is NOT a replacement or alternative to the original DXVK. We deeply respect and appreciate the titanic work of Philip Rebo (doitsujin) and the entire original DXVK team for revolutionizing the translation of DirectX 9/10/11 calls into Vulkan API! Official DXVK repository: https://github.com/doitsujin/dxvk.
+
+Our utility automates the deployment process:
+- Automatically downloads the original libraries from GitHub.
+- Analyzes game .exe files, determining their architecture (x32/x64) and API used (DX9, DX10, DX11).
+- Distributes files, unblocks them in Windows, and generates an optimal dxvk.conf configuration file based on your selected presets.
+
+----------------------------------------------------------------------
+2. IMPORTANT WARNINGS AND RISKS
+----------------------------------------------------------------------
+Vulkanizer works with DirectX 9, 10, and 11 games. However, not all games will work on all configurations! It depends on the hardware (the graphics card must support Vulkan) and the specific game engine.
+
+What to do if a game won't launch? (DON'T PANIC)
+The script works as safely as possible. Before replacing files, it makes backups (.bak). If after installing Vulkanizer the game throws an error, crashes, or shows a black screen, you do not need to reinstall the game.
+
+Just go to the folder with the game's .exe file and delete the following files:
+- d3d9.dll, d3d10core.dll, d3d11.dll, dxgi.dll
+- dxvk.conf
+
+Or use the "Uninstall Vulkanizer" button in the program itself. The game will return to its native, clean DirectX state. Nothing will break.
+
+Stability tip: For maximum stability with Vulkan, run games in "Borderless Windowed" mode. This prevents crashes when minimizing (Alt+Tab), eliminates input lag, and ensures stable overlay operation.
+
+----------------------------------------------------------------------
+3. SPECIAL INSTRUCTIONS
+----------------------------------------------------------------------
+[UBISOFT Games (Assassin's Creed, Watch Dogs, Far Cry, etc.)]
+The Ubisoft Connect overlay often causes instant crashes when working with Vulkan API. If you are installing Vulkanizer on Ubisoft games, be sure to follow these steps:
+1. Open the Ubisoft Connect launcher.
+2. Go to Menu -> Settings -> "Interface" tab.
+3. Uncheck "Enable in-game overlay for supported games".
+4. Launch the game STRICTLY through the Ubisoft Connect launcher itself, not directly via the EXE!
+
+[Ultimate GTA 4 Fix (and old engines)]
+Old engines don't know how to work with modern memory capacities. The program has a special toggle: "Emulate top-tier graphics card GTX 680 (VRAM Unlock)".
+When enabled:
+- The graphics card is spoofed as an NVIDIA GTX 680.
+- A hard limit of 4096 MB of video memory is allocated.
+- A commandline.txt file is created in the game folder.
+- WARNING: Modern Steam/Rockstar launchers ignore files in the folder. The program will copy the necessary parameters to your clipboard (-nomemrestrict -norestrictions -availablevidmem 4096). Be sure to paste them into the game's "Launch Options" in Steam! If you have a pirated version, launch strictly through GTAIV.exe.
+
+----------------------------------------------------------------------
+4. SETTINGS AND GRAPHICS PRESETS
+----------------------------------------------------------------------
+[DXVK Version Selection]
+- Latest Version: v2.4+ (Requires Vulkan 1.3 support). Ideal for modern graphics cards.
+- Legacy-compatible: v1.10.3 (Requires Vulkan 1.1 support). Specifically for older graphics cards.
+
+[Forced API Selection (Override)]
+By default, the program determines the game's API itself. But sometimes games use mixed libraries. You can force the program to install libraries only for DX9, DX10, DX11, or install All at once.
+
+[Optimization Presets (dxvk.conf Generation)]
+1. Cinematic Ultra: Maximum smoothness, 4 buffers, 16x anisotropy, extreme LOD detail (-2.0), forced Sample Rate Shading.
+2. Ultra Quality: High quality balance, 16x anisotropy, LOD detail (-1.0), 8x tessellation.
+3. Best Picture: Clarity and smoothness, FPS priority, 16x anisotropy, medium LOD (-0.5). Optimal choice.
+4. Balanced: Optimal visual/FPS ratio, 8x anisotropy, standard LOD (0.0).
+5. Pure Vulkan (Vanilla): Only pure DXVK call translation. No graphical enhancements, maximum focus on lowering input lag and high CPU priority.
+
+[Synchronization and Buffering]
+MANDATORY: In our presets, vertical synchronization is ENABLED BY DEFAULT via DXVK. Turn off V-Sync in the game's own settings to avoid double input lag!
+- V-Sync: ON (Recommended), OFF (Min. delay, screen tearing possible), HALF x2 (for 30/60 fps locks).
+- Buffering: Double (2 frames), Triple (3 frames — standard), Quad (4 frames — for ultra-smoothness on powerful PCs).
+
+[Overlay and Monitoring (DXVK HUD)]
+- No overlay: Completely disabled.
+- Minimal: FPS counter only.
+- Extended: FPS, frametime, GPU load, shader compilation, memory.
+- Full diagnostic: Displays absolutely all charts, API versions, and pipeline status on screen.
+
+----------------------------------------------------------------------
+5. GAME MAINTENANCE TOOLS
+----------------------------------------------------------------------
+- Clear game cache: Deletes *.dxvk-cache files. Useful if the game starts freezing after driver updates.
+- Reset game settings: Finds and deletes config files (GamerProfile.xml, settings.xml, etc.) in Documents and AppData folders.
+- Uninstall Vulkanizer: Deep clean. Deletes all DXVK .dll files, dxvk.conf, and restores backups of original Windows files.
+- Create shortcut: Creates a direct .lnk shortcut on the desktop to launch the configured game.
+
+----------------------------------------------------------------------
+6. GLOBAL OS SYSTEM TWEAKS
+----------------------------------------------------------------------
+Vulkanizer PRO includes 13 deep operating system optimizations. Requires running as Administrator. All tweaks can be rolled back with a single button "RESET ALL TWEAKS".
+
+1. Unified global DXVK cache: Moves the cache of all games to the C:\DXVK_Cache folder.
+2. Windows Game Mode: Forcibly activates suppression of background tasks.
+3. Disable Xbox GameDVR: Disables background cyclic screen recording.
+4. GPU driver cache cleanup: Cleans NVIDIA/DXCache, AMD/DxCache folders.
+5. "Ultimate Performance" power plan: Activates hidden max performance scheme, disables core parking.
+6. CPU scheduler priorities: Changes Win32PrioritySeparation to 26, giving max resources to the game.
+7. Hardware-Accelerated GPU Scheduling (HAGS): Video memory management bypassing the OS driver.
+8. Network stack (MMCSS): Removes network limits, gives games 100% priority.
+9. Nagle's algorithm (Low ping): Disables packet buffering (TcpAckFrequency), reducing latency.
+10. Clean shutdown (Fast Startup): Disables fast startup/hibernation to clear memory leaks.
+11. Disable HPET and timers: Removes micro-freezes during sharp mouse movements.
+12. Clean temporary files: Hard cleans Temp and Prefetch directories.
+13. Disable Windows transparency: Disables Aero/Fluent effects to save GPU resources.
+
+----------------------------------------------------------------------
+7. HOW TO USE
+----------------------------------------------------------------------
+1. Run the application as Administrator.
+2. On the "Games and Settings" tab, click "Scan Steam" or add a game manually.
+3. Select a game from the list that appears.
+4. Adjust parameters: DXVK version, graphics preset, and overlay.
+5. Click "INSTALL VULKANIZER" and wait for libraries to download/extract.
+6. Click "Launch Game" (Borderless Windowed mode is recommended).
+
+----------------------------------------------------------------------
+8. CONTACTS AND AUTHORS
+----------------------------------------------------------------------
+Wrapper creators: EvilCat & AI (Golden Standard)
+Modification and improvement: Zvezdochka
+Creator contact (Telegram): @EvilCat_97
+Original DXVK translator project: https://github.com/doitsujin/dxvk
+
+Remember: the chances of encountering a bear with a shotgun are extremely low, but never zero! Enjoy lag-free gaming!
