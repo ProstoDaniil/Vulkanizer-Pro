@@ -43,7 +43,7 @@
    - Now, when adding a single file, it is instantly and correctly selected in the active games list.
 
 
-
+///////////////////////////////////////////////////////////////////////////////////
                      ВУЛКАНИЗАТОР ПРО (alpha v0.66)
   Интеллектуальный оптимизатор & GUI-враппер для перевода игр на Vulkan API
                ДЛЯ ИСТИННЫХ ГЕЙМЕРОВ. ОТ ТЕХ, КТО В ИГРЕ!
