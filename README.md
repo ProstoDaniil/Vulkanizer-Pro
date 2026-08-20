@@ -1,4 +1,49 @@
 ======================================================================
+                     ВУЛКАНИЗАТОР ПРО (alpha v0.67)
+======================================================================
+
+ ЧТО НОВОГО В ВЕРСИИ 0.67 (ЧЕЙНДЖЛОГ):
+
+1. Строгий контроль API (Оверрайд):
+   - Полностью удален ненадежный режим "Auto" при установке библиотек.
+   - Теперь программа сканирует игру и предлагает подходящий DirectX (как подсказку), но пользователь сам принимает финальное решение.
+   - Скрипт установит ТОЛЬКО те DLL, которые вы выбрали вручную (DX9, DX10, DX11 или All). Никакого "захламления" папок лишними библиотеками.
+
+2. Умное добавление папок:
+   - Полностью переработана кнопка "Добавить папку".
+   - Теперь она не добавляет слепо все .exe файлы из директории (игнорируя лаунчеры, деинсталляторы и т.д.).
+   - При выборе папки появляется удобное всплывающее окно со списком найденных игр/файлов. Вы можете галочками отметить только те .exe, которые действительно хотите оптимизировать.
+
+3. Исправление одиночного добавления:
+   - Починен баг, из-за которого ломалось ручное добавление одиночного .exe файла (кнопка с шестеренкой).
+   - Теперь при добавлении одиночного файла он моментально и корректно выбирается в списке активных игр.
+
+----------------------------------------------------------------------
+🇬🇧 ENGLISH VERSION
+----------------------------------------------------------------------
+
+======================================================================
+                     VULKANIZER PRO (alpha v0.67)
+======================================================================
+
+ WHAT'S NEW IN VERSION 0.67 (CHANGELOG):
+
+1. Strict API Control (Override):
+   - The unreliable "Auto" mode for library installation has been completely removed.
+   - The program now scans the game and suggests the appropriate DirectX version (as a hint), but the user makes the final decision.
+   - The script will install ONLY the DLLs you manually select (DX9, DX10, DX11, or All). No more cluttering game folders with unnecessary libraries.
+
+2. Smart Folder Addition:
+   - The "Add Folder" button has been completely reworked.
+   - It no longer blindly adds all .exe files from a directory (ignoring launchers, uninstallers, etc.).
+   - When you select a folder, a convenient pop-up window appears with a list of found games/files. You can use checkboxes to select only the .exe files you actually want to optimize.
+
+3. Single File Addition Fix:
+   - Fixed a bug that broke the manual addition of a single .exe file (the gear button).
+   - Now, when adding a single file, it is instantly and correctly selected in the active games list.
+
+
+
                      ВУЛКАНИЗАТОР ПРО (alpha v0.66)
   Интеллектуальный оптимизатор & GUI-враппер для перевода игр на Vulkan API
                ДЛЯ ИСТИННЫХ ГЕЙМЕРОВ. ОТ ТЕХ, КТО В ИГРЕ!
